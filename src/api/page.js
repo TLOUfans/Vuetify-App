@@ -8,7 +8,10 @@ export const GetFormConfig = (formId, type, keyValue) => {
   return FormData.get(`/Form/Init/${formId}/${type || 'view'}/${keyValue || ''}`)
     .then(res => {
       EvalScript(res.data)
-      return window.formconfig
+      return {
+        config: window.formconfig,
+        sessiondata: window.sessiondata
+      }
     })
     .catch(err => {
       return {

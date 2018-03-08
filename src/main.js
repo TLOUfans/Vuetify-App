@@ -3,7 +3,8 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-import VueIconFont from 'vue-icon-font';
+import store from './store/index'
+import VueIconFont from 'vue-icon-font'
 
 import Vuetify from 'vuetify'
 import 'vuetify/dist/vuetify.min.css'
@@ -14,10 +15,12 @@ Vue.config.productionTip = false
 Vue.use(Vuetify);
 Vue.use(VueIconFont);
 
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,
+  store,
   components: {
     App: () => import('./App')
   },
