@@ -13,10 +13,6 @@
               <span class="center-title">子项名称：</span>
               <span class="center-des">{{ls.SubName}}</span>
             </div>
-            <div class="center-content">
-              <span class="center-title">检查日期：</span>
-              <mu-date-picker v-model="ls.CheckDate" :format="'YYYY-MM-DD'" hintText="请选择" inputClass="inputWidth"/>
-            </div>
           </div>
           <div class="right">
             <icon name="more" type="class"></icon>
@@ -42,25 +38,48 @@ export default {
     return {
       list: [],
       showMask: false,
-      modal: false,
-      menu: "",
-      date: ""
+      message: {
+        type: 'info',
+        text: '保存成功',
+        show: false
+      }
     };
   },
   computed: {
     ...mapGetters(["KeyValue", "KeyWord", "formId"])
   },
   methods: {
+    hideToast() {
+      this.toast = false
+      if (this.toastTimer) clearTimeout(this.toastTimer)
+    },
+    showToast({type, text}) {
+      this.message = {
+        type: type,
+        text: text,
+        show: true
+      }
+      if (this.toastTimer) clearTimeout(this.toastTimer);
+      this.toastTimer = setTimeout(() => { this.message.show = false }, 2000)
+    },
     handleClick(e) {
+      this.showMask = true;
       e["_state"] = "modified";
       let postData = { NPMS_ENGPLAN_InspectAct_List: {} };
       postData["NPMS_ENGPLAN_InspectAct_List"]["KeyWordType"] = null;
       postData["NPMS_ENGPLAN_InspectAct_List"]["data"] = [e];
       page.SaveForm(this.formId, postData).then(res => {
+        this.showMask = false;
         if(res.success === true) {
-          this.router.go(-1);
+          this.showToast({type:'success', text: '保存成功'});
+          this.$router.push({path: '/EngFormND', query: {ID: e.ID}})
         } else {
-
+          this.message = {
+            type: 'error',
+            text: '保存失败',
+            show: true
+          }
+          this.$router.go(-1);
         }
       }).catch(err => {
         console.error(err);
@@ -70,7 +89,7 @@ export default {
   created() {
     this.showMask = true;
     if (!this.KeyValue) {
-      alert("暂无检查");
+      this.showToast({text: '暂无检查'});
       this.$router.go(-1);
     } else {
       page
@@ -104,9 +123,9 @@ export default {
   .np-list {
     list-style: none;
     padding: 10px 0px;
-    box-shadow: 5px 5px 10px #eeeeee;
     .np-list-item {
-      margin: 0 20px;
+      box-shadow: 5px 5px 10px #eeeeee;
+      padding: 0 20px;
       .list-content {
         display: flex;
         align-items: center;

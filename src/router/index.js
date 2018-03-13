@@ -19,6 +19,16 @@ export default new Router({
       path: '/EngFormST',
       name: 'EngFormST',
       component: () => import('../components/eng/FormST')
+    },
+    {
+      path: '/EngFormND',
+      name: 'EngFormND',
+      component: () => import('../components/eng/FormND')
+    },
+    {
+      path: '/EngFormRD',
+      name: 'EngFormRD',
+      component: () => import('../components/eng/FormRD')
     }
   ]
 })

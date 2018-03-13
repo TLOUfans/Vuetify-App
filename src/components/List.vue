@@ -25,7 +25,7 @@
           </div>
         </v-list-tile-content>
         <v-list-tile-action>
-          <icon name="more" type="class"></icon>
+          <icon name="more" type="class" style="color: #2c3e50"></icon>
         </v-list-tile-action>
       </v-list-tile>
     </v-list>
@@ -126,6 +126,7 @@ export default {
       }
       .center {
         font-size: 0.8rem;
+        color: #2c3e50;
       }
     }
     .status-container {

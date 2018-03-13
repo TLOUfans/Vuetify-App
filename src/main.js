@@ -10,18 +10,11 @@ import Vuetify from 'vuetify'
 import 'vuetify/dist/vuetify.min.css'
 import './assets/font/iconfont.css'
 import './assets/font/index.css'
-
-import MuseUI from 'muse-ui'
-import 'muse-ui/dist/muse-ui.css'
-import 'muse-ui/dist/theme-light.css'
-Vue.use(MuseUI)
+import colors from 'vuetify/es5/util/colors'
 
 Vue.config.productionTip = false
 
-Vue.use(Vuetify);
 Vue.use(VueIconFont);
-
-import colors from 'vuetify/es5/util/colors'
 
 Vue.use(Vuetify, {
   theme: {
