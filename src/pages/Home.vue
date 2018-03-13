@@ -5,7 +5,7 @@
         <div class="np-box" @click="handleClick">
           <div class="np-icon">
             <span class="np-badge" v-text="limitNumber(ls.msgNumber)" style="font-size:0.7rem"></span>
-            <icon :name="icons[index]" type="class" :style="{color: colors[index]}"></icon>
+            <icon :name="icons[index]" type="class" :style="{color: colors[index], fontSize: '2.5rem'}"></icon>
           </div>
           <div class="np-title">
             <span class="np-title-text" v-text="ls.label"></span>

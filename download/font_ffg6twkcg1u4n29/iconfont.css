@@ -15,23 +15,23 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-safe:before { content: "\e665"; }
+.icon-ai-safe:before { content: "\e665"; }
 
-.icon-document-edit:before { content: "\e723"; }
+.icon-wendangxiugai:before { content: "\e723"; }
 
-.icon-quality:before { content: "\e61c"; }
+.icon-zhiliang:before { content: "\e61c"; }
 
-.icon-back:before { content: "\f0343"; }
+.icon-fanhui:before { content: "\f0343"; }
 
-.icon-more:before { content: "\f0344"; }
+.icon-gengduo:before { content: "\f0344"; }
 
 .icon-HSE:before { content: "\e603"; }
 
-.icon-document-list:before { content: "\e604"; }
+.icon-tuwenliebiao:before { content: "\e604"; }
 
-.icon-construction:before { content: "\e65b"; }
+.icon-shigongzhong:before { content: "\e65b"; }
 
-.icon-schedule:before { content: "\e7b0"; }
+.icon-jindu:before { content: "\e7b0"; }
 
-.icon-process:before { content: "\e66d"; }
+.icon-guochengguanli:before { content: "\e66d"; }
 

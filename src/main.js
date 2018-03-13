@@ -15,7 +15,6 @@ Vue.config.productionTip = false
 Vue.use(Vuetify);
 Vue.use(VueIconFont);
 
-
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

@@ -1,5 +1,8 @@
 <template>
-  <div>123</div>
+  <v-toolbar color="cyan" dark>
+    <icon name="back" type="class" :style="{color: '#fff', fontSize: '1.5rem'}"></icon>
+    <v-toolbar-title style="text-align:center">Inbox</v-toolbar-title>
+  </v-toolbar>
 </template>
 
 <script>
@@ -12,7 +15,8 @@ export default {
   },
   computed: {
     ...mapGetters({
-      formConfig: 'formConfig'
+      formConfig: 'formConfig',
+      
     })
   },
   methods: {
@@ -30,6 +34,6 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss" scoped>
 
 </style>
