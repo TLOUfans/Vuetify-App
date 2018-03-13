@@ -9,11 +9,35 @@ import VueIconFont from 'vue-icon-font'
 import Vuetify from 'vuetify'
 import 'vuetify/dist/vuetify.min.css'
 import './assets/font/iconfont.css'
+import './assets/font/index.css'
+
+import MuseUI from 'muse-ui'
+import 'muse-ui/dist/muse-ui.css'
+import 'muse-ui/dist/theme-light.css'
+Vue.use(MuseUI)
 
 Vue.config.productionTip = false
 
 Vue.use(Vuetify);
 Vue.use(VueIconFont);
+
+import colors from 'vuetify/es5/util/colors'
+
+Vue.use(Vuetify, {
+  theme: {
+    primary: colors.red.darken1, // #E53935
+    secondary: colors.red.lighten4, // #FFCDD2
+    accent: colors.indigo.base // #3F51B5
+  }
+})
+
+router.beforeEach((to, form, next) => {
+  if (to.path !== '/') {
+    if (store.state.app.formTitle) next();
+    else next('/');
+  }
+  next();
+});
 
 /* eslint-disable no-new */
 new Vue({

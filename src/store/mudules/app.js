@@ -8,6 +8,7 @@ const types = {
   KEYVALUE_MUTATION: 'KEYVALUE_MUTATION', // 提交记录ID
   FORMTITLE_MUTATION: 'FORMTITLE_MUTATION', // 提交表单标题
   KEYWORD_MUTATION: 'KEYWORD_MUTATION', // 提交关键字
+  MENUOPTION_MUTATION: 'MENUOPTION_MUTATION', // 提交菜单配置
 }
 
 const state = {
@@ -18,6 +19,7 @@ const state = {
   KeyValue: '', // 记录ID
   formTitle: '', // 表单标题
   KeyWord: '', // 关键字
+  menuOption: {}, // 菜单配置
 };
 
 const mutations = {
@@ -42,6 +44,9 @@ const mutations = {
   [types.KEYWORD_MUTATION](state, KeyWord) {
     state.KeyWord = KeyWord;
   },
+  [types.MENUOPTION_MUTATION](state, menuOption) {
+    state.menuOption = menuOption;
+  },
 };
 
 const actions = {
@@ -65,6 +70,9 @@ const getters = {
   formId: state => state.formId,
   FormState: state => state.FormState,
   KeyValue: state => state.KeyValue,
+  formTitle: state => state.formTitle,
+  KeyWord: state => state.KeyWord,
+  menuOption: state => state.menuOption,
 };
 
 export default {

@@ -12,8 +12,13 @@ export default new Router({
     },
     {
       path: '/List',
-      name: 'NpWin',
+      name: 'List',
       component: () => import('../components/List')
+    },
+    {
+      path: '/EngFormST',
+      name: 'EngFormST',
+      component: () => import('../components/eng/FormST')
     }
   ]
 })

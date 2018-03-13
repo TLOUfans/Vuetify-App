@@ -31,7 +31,8 @@
             label: "进度检查",
             msgNumber: 11,
             formId: "1d5a7680-06c8-411e-ac72-35cc5d4ab9a3",
-            keyWord: "NPMS_ENGPLAN_InspectPlan"
+            keyWord: "NPMS_ENGPLAN_InspectPlan",
+            KeyWordST: 'NPMS_ENGPLAN_InspectAct'
           },
           {
             label: "质量检查",
@@ -53,14 +54,16 @@
         setFormTitle: 'FORMTITLE_MUTATION',
         setFormId: 'FORMID_MUTATION',
         setKeyWord: 'KEYWORD_MUTATION',
-        setFormState: 'FORMSTATE_MUTATION'
+        setFormState: 'FORMSTATE_MUTATION',
+        setMenuOption: 'MENUOPTION_MUTATION',
       }),
       handleClick(e) {
         this.setFormTitle(e.label);
         this.setFormId(e.formId);
         this.setKeyWord(e.keyWord);
         this.setFormState('edit');
-        this.$router.push({ path: '/List' });
+        this.setMenuOption(e);
+        this.$router.push({ name: 'List' });
       },
       limitNumber(number) {
         return Number(number) > 99 ? '99+' : number;
