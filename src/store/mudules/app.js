@@ -6,6 +6,8 @@ const types = {
   FORMSTATE_MUTATION: 'FORMSTATE_MUTATION', // 提交表单状态 add/edit/view
   FORMID_MUTATION: 'FORMID_MUTATION', // 提交表单ID
   KEYVALUE_MUTATION: 'KEYVALUE_MUTATION', // 提交记录ID
+  FORMTITLE_MUTATION: 'FORMTITLE_MUTATION', // 提交表单标题
+  KEYWORD_MUTATION: 'KEYWORD_MUTATION', // 提交关键字
 }
 
 const state = {
@@ -14,6 +16,8 @@ const state = {
   FormState: '', // 表单状态 add/edit/view
   formId: '', // 表单ID
   KeyValue: '', // 记录ID
+  formTitle: '', // 表单标题
+  KeyWord: '', // 关键字
 };
 
 const mutations = {
@@ -32,10 +36,16 @@ const mutations = {
   [types.KEYVALUE_MUTATION](state, KeyValue) {
     state.KeyValue = KeyValue;
   },
+  [types.FORMTITLE_MUTATION](state, formTitle) {
+    state.formTitle = formTitle;
+  },
+  [types.KEYWORD_MUTATION](state, KeyWord) {
+    state.KeyWord = KeyWord;
+  },
 };
 
 const actions = {
-  getFormConfigAndSessiondata({ commit, state }) {
+  getFormConfig({ commit, state }) {
     return new Promise((resolve, reject) => {
       page.GetFormConfig(state.formId, state.FormState, state.KeyValue).then(res => {
         commit(types.FORMCONFIG_MUTATION, res.config);

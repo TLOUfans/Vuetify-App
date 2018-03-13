@@ -10,7 +10,7 @@ import { mapState, mapActions, mapMutations, mapGetters } from 'vuex';
 export default {
   data() {
     return {
-
+      list: []
     }
   },
   computed: {
@@ -23,13 +23,12 @@ export default {
     ...mapMutations({
       setFormId: 'FORMID_MUTATION'
     }),
-    ...mapActions(['getFormConfigAndSessiondata'])
+    ...mapActions(['getFormConfig'])
   },
   created() {
-    this.setFormId('1d5a7680-06c8-411e-ac72-35cc5d4ab9a3');
-    this.getFormConfigAndSessiondata().then(res => {
+    this.getFormConfig().then(res => {
       console.log(this.formConfig);
-    })
+    });
   }
 }
 </script>
